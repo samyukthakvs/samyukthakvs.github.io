@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PeopleStrong Manufacturing ICP | Sales & Solutions Enablement</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @import url('https://fonts.cdnfonts.com/css/satoshi');
+
+  :root {
+    --ps-blue: #1700C7;
+    --ps-dark-navy: #03005E;
+    --ps-white: #FFFFFF;
+    --ps-yellow: #FFB700;
+    --ps-red-orange: #FC4430;
+    --ps-cool-blue: #00D3E4;
+    --ps-concrete: #F2F2F2;
+    --ps-alto: #DDDDDD;
+    --ps-dusty-grey: #999999;
+    --ps-dove-grey: #616161;
+    --ps-mine-shaft: #333333;
+    --ps-black: #000000;
+    --ps-font-heading: 'Satoshi', Arial, sans-serif;
+    --ps-font-body: 'Inter', Calibri, Helvetica, sans-serif;
+    --gradient-skyfall: linear-gradient(-20deg, #1700C7 0%, #03005E 80%);
+    --gradient-stream: linear-gradient(-20deg, #03005E 0%, #00D3E4 80%);
+    --gradient-pulse: linear-gradient(-20deg, #FC4430 0%, #FFB700 80%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--ps-font-body);
+    color: var(--ps-mine-shaft);
+    background: var(--ps-white);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--ps-alto);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(23,0,199,0.1); }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 32px;
+    height: 32px;
+    position: relative;
+  }
+  /* SVG Lift-off icon approximation */
+  .nav-wordmark {
+    font-family: var(--ps-font-heading);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ps-blue);
+    letter-spacing: -0.5px;
+  }
+  .nav-pill {
+    font-family: var(--ps-font-body);
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--ps-concrete);
+    color: var(--ps-dove-grey);
+    border-radius: 20px;
+    padding: 2px 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-left: 4px;
+    align-self: center;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ps-mine-shaft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ps-blue); }
+  .nav-cta {
+    background: var(--ps-blue);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    font-family: var(--ps-font-body);
+  }
+  .nav-cta:hover {
+    background: var(--ps-dark-navy);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(23,0,199,0.25);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--gradient-skyfall);
+    padding: 140px 48px 100px;
+    position: relative;
+    overflow: hidden;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,211,228,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    left: 40%; bottom: -60px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,183,0,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+    animation: fadeSlideUp 0.6s ease both;
+  }
+  .hero-badge-dot {
+    width: 6px; height: 6px;
+    background: var(--ps-cool-blue);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+  .hero-badge span {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .hero-headline {
+    font-family: var(--ps-font-heading);
+    font-size: 52px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+    animation: fadeSlideUp 0.7s ease 0.1s both;
+  }
+  .hero-headline em {
+    font-style: normal;
+    color: var(--ps-cool-blue);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 500px;
+    animation: fadeSlideUp 0.7s ease 0.2s both;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    animation: fadeSlideUp 0.7s ease 0.3s both;
+  }
+  .btn-primary {
+    background: white;
+    color: var(--ps-blue);
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: var(--ps-font-body);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  }
+  .btn-ghost {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s, gap 0.2s;
+    font-family: var(--ps-font-body);
+  }
+  .btn-ghost:hover { color: white; gap: 10px; }
+  .btn-ghost::after { content: '→'; }
+
+  .hero-visual {
+    animation: fadeSlideUp 0.8s ease 0.15s both;
+  }
+  .hero-card-stack {
+    position: relative;
+    height: 380px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 16px;
+    padding: 20px 24px;
+    position: absolute;
+    transition: transform 0.3s;
+  }
+  .stat-card:hover { transform: translateY(-4px) !important; }
+  .stat-card .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 6px;
+  }
+  .stat-card .value {
+    font-family: var(--ps-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+  .stat-card .value span {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    margin-left: 4px;
+  }
+  .stat-card .sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+  }
+  .stat-card-1 {
+    top: 0; left: 10px;
+    width: 220px;
+  }
+  .stat-card-2 {
+    top: 100px; left: 180px;
+    width: 230px;
+    border-color: rgba(0,211,228,0.3);
+  }
+  .stat-card-3 {
+    top: 220px; left: 30px;
+    width: 260px;
+  }
+  .stat-card-badge {
+    display: inline-block;
+    background: var(--ps-cool-blue);
+    color: var(--ps-dark-navy);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── INDUSTRY STRIP ─── */
+  .industry-strip {
+    background: var(--ps-dark-navy);
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .industry-strip .label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-right: 8px;
+  }
+  .industry-tag {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .industry-tag:hover {
+    background: rgba(0,211,228,0.12);
+    border-color: rgba(0,211,228,0.35);
+    color: var(--ps-cool-blue);
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 80px 48px; }
+  .section-inner { max-width: 1120px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ps-blue);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--ps-font-heading);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--ps-dark-navy);
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 16px;
+    color: var(--ps-dove-grey);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  /* ─── PAIN SECTION ─── */
+  .pain-section { background: var(--ps-concrete); }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .pain-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    border: 1px solid var(--ps-alto);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .pain-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(23,0,199,0.08);
+    border-color: rgba(23,0,199,0.2);
+  }
+  .pain-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .pain-icon.red { background: rgba(252,68,48,0.1); }
+  .pain-icon.yellow { background: rgba(255,183,0,0.1); }
+  .pain-icon.blue { background: rgba(23,0,199,0.07); }
+  .pain-card h3 {
+    font-family: var(--ps-font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ps-dark-navy);
+    margin-bottom: 8px;
+  }
+  .pain-card p {
+    font-size: 14px;
+    color: var(--ps-dove-grey);
+    line-height: 1.65;
+  }
+  .pain-quote {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--ps-concrete);
+    border-left: 3px solid var(--ps-red-orange);
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--ps-dove-grey);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ─── SOLUTION SECTION ─── */
+  .solution-section { background: white; }
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
+  .solution-card {
+    border-radius: 14px;
+    padding: 28px;
+    border: 1.5px solid var(--ps-alto);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+  .solution-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-skyfall);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .solution-card:hover::before { opacity: 1; }
+  .solution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(23,0,199,0.1);
+    border-color: rgba(23,0,199,0.15);
+  }
+  .solution-card.featured {
+    background: var(--gradient-skyfall);
+    border-color: transparent;
+    color: white;
+  }
+  .solution-card.featured::before { display: none; }
+  .solution-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    background: rgba(23,0,199,0.08);
+    color: var(--ps-blue);
+  }
+  .solution-card.featured .solution-tag {
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8);
+  }
+  .solution-card h3 {
+    font-family: var(--ps-font-heading);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ps-dark-navy);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+  .solution-card.featured h3 { color: white; }
+  .solution-card p {
+    font-size: 14px;
+    color: var(--ps-dove-grey);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .solution-card.featured p { color: rgba(255,255,255,0.72); }
+  .moat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ps-blue);
+    background: rgba(23,0,199,0.07);
+    border-radius: 20px;
+    padding: 4px 10px;
+  }
+  .solution-card.featured .moat-badge {
+    color: var(--ps-cool-blue);
+    background: rgba(0,211,228,0.15);
+  }
+  .moat-stars { color: var(--ps-yellow); font-size: 11px; }
+
+  /* ─── PERSONAS SECTION ─── */
+  .personas-section { background: var(--ps-concrete); }
+  .personas-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .persona-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px 18px;
+    border: 1.5px solid var(--ps-alto);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .persona-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(23,0,199,0.1);
+    border-color: var(--ps-blue);
+  }
+  .persona-emoji { font-size: 28px; margin-bottom: 10px; display: block; }
+  .persona-role {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--ps-dusty-grey);
+    margin-bottom: 6px;
+  }
+  .persona-title {
+    font-family: var(--ps-font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ps-dark-navy);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .persona-pain {
+    font-size: 12px;
+    color: var(--ps-dove-grey);
+    line-height: 1.5;
+  }
+  .persona-influence {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--ps-blue);
+    font-weight: 600;
+  }
+
+  /* ─── STATS BAR ─── */
+  .stats-bar {
+    background: var(--gradient-skyfall);
+    padding: 60px 48px;
+  }
+  .stats-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  .stat-item { position: relative; }
+  .stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 20%; bottom: 20%;
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+  }
+  .stat-num {
+    font-family: var(--ps-font-heading);
+    font-size: 44px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-num em {
+    font-style: normal;
+    color: var(--ps-cool-blue);
+  }
+  .stat-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    max-width: 160px;
+    margin: 0 auto;
+  }
+
+  /* ─── SIGNALS SECTION ─── */
+  .signals-section { background: white; }
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .signal-card {
+    border-radius: 12px;
+    padding: 22px 22px 22px 20px;
+    border-left: 4px solid;
+    background: var(--ps-concrete);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .signal-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  }
+  .signal-card.red { border-color: var(--ps-red-orange); }
+  .signal-card.yellow { border-color: var(--ps-yellow); }
+  .signal-card.green { border-color: #22c55e; }
+  .signal-urgency {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+  }
+  .signal-card.red .signal-urgency { color: var(--ps-red-orange); }
+  .signal-card.yellow .signal-urgency { color: #c97d00; }
+  .signal-card.green .signal-urgency { color: #16a34a; }
+  .signal-card h4 {
+    font-family: var(--ps-font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ps-dark-navy);
+    margin-bottom: 6px;
+  }
+  .signal-card p {
+    font-size: 13px;
+    color: var(--ps-dove-grey);
+    line-height: 1.55;
+  }
+  .signal-velocity {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ps-dusty-grey);
+  }
+
+  /* ─── DISCOVERY SECTION ─── */
+  .discovery-section { background: var(--ps-dark-navy); padding: 80px 48px; }
+  .discovery-inner { max-width: 1120px; margin: 0 auto; }
+  .discovery-section .eyebrow { color: var(--ps-cool-blue); }
+  .discovery-section .section-title { color: white; }
+  .discovery-section .section-sub { color: rgba(255,255,255,0.6); }
+  .questions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .question-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 22px;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .question-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(0,211,228,0.3);
+  }
+  .question-persona {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--ps-cool-blue);
+    margin-bottom: 8px;
+  }
+  .question-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* cta section removed — internal use only */
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ps-dark-navy);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-brand {
+    font-family: var(--ps-font-heading);
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+  }
+  .footer-divider {
+    color: rgba(255,255,255,0.2);
+    font-size: 13px;
+    margin: 0 10px;
+  }
+  .footer-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-right {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ─── SCROLL ANIMATION ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <rect x="4" y="16" width="10" height="10" rx="2" fill="#FFB700"/>
+      <rect x="12" y="8" width="10" height="10" rx="2" fill="#FC4430"/>
+      <rect x="20" y="0" width="10" height="10" rx="2" fill="#00D3E4"/>
+    </svg>
+    <span class="nav-wordmark">PeopleStrong</span>
+    <span class="nav-pill">Manufacturing</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#challenges">Challenges</a></li>
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#who">Personas</a></li>
+    <li><a href="#signals">Buying Signals</a></li>
+  </ul>
+  <span style="font-size:12px;font-weight:600;color:var(--ps-dusty-grey);background:var(--ps-concrete);border:1px solid var(--ps-alto);border-radius:20px;padding:6px 14px;letter-spacing:0.4px;">🔒 Internal Enablement Only</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Built for Indian Manufacturing</span>
+      </div>
+      <h1 class="hero-headline">
+        HR that runs on the<br><em>factory floor.</em>
+      </h1>
+      <p class="hero-sub">
+        Multi-plant compliance, biometric-to-payroll accuracy, and real-time contractor visibility — purpose-built for Auto, FMCG, and Heavy Engineering.
+      </p>
+      <div class="hero-actions">
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:12px 20px;">
+          <span style="font-size:18px;">📋</span>
+          <div>
+            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:rgba(255,255,255,0.55);margin-bottom:2px;">This document covers</div>
+            <div style="font-size:14px;color:white;font-weight:500;">Personas · Pain Points · Solutions · Buying Signals · Discovery Questions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="stat-card stat-card-1">
+          <div class="label">Compliance Registers</div>
+          <div class="value">Form 13–23 <span>auto-generated</span></div>
+          <div class="sub">Inspector-ready. Any plant. Any time.</div>
+        </div>
+        <div class="stat-card stat-card-2">
+          <div class="stat-card-badge">Live</div>
+          <div class="label">Contractor Workforce</div>
+          <div class="value">30<span>%+ visibility</span></div>
+          <div class="sub">PF, ESIC & challan status — one dashboard</div>
+        </div>
+        <div class="stat-card stat-card-3">
+          <div class="label">Multi-Plant Payroll</div>
+          <div class="value">10+<span>legal entities</span></div>
+          <div class="sub">State-level min. wage auto-applied. Zero manual override.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY STRIP -->
+<div class="industry-strip">
+  <span class="label">Trusted across</span>
+  <span class="industry-tag">Automotive & Auto-Components</span>
+  <span class="industry-tag">FMCG Manufacturing</span>
+  <span class="industry-tag">Heavy Engineering</span>
+  <span class="industry-tag">Industrial Chemicals</span>
+  <span class="industry-tag">Pharma Manufacturing</span>
+  <span class="industry-tag">Electronics Assembly</span>
+</div>
+
+<!-- PAIN SECTION -->
+<section class="pain-section" id="challenges">
+  <div class="section-inner">
+    <p class="eyebrow reveal">The Reality on the Ground</p>
+    <h2 class="section-title reveal reveal-delay-1">Your CHRO shouldn't be running<br>the board on three-day-old Excel.</h2>
+    <p class="section-sub reveal reveal-delay-2">Every Monday, Plant HR teams rebuild the same manpower report from scratch. Every quarter, Finance wonders if the payroll numbers are real. Every compliance visit is a fire drill. There's a better way.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card reveal reveal-delay-1">
+        <div class="pain-icon red">⚠️</div>
+        <h3>Compliance is a Permanent Fire Drill</h3>
+        <p>Labour Inspector walks in unannounced. Form 13–23 are incomplete. Contractors' PF challans haven't been submitted by three vendors. Your Plant HR manager spends a full day assembling what should be real-time.</p>
+        <div class="pain-quote">"It would take at least a day, and they still wouldn't all be complete."</div>
+      </div>
+      <div class="pain-card reveal reveal-delay-2">
+        <div class="pain-icon yellow">💸</div>
+        <h3>Payroll Leakage You Can't See</h3>
+        <p>Ghost workers on the biometric register who aren't on the floor. Night shift allowances applied to day workers. Overtime manipulation across plants. Finance has never audited biometric-to-payroll accuracy — because there's no tool to do it.</p>
+        <div class="pain-quote">"OT is a big line item, but we've never specifically audited the link to attendance."</div>
+      </div>
+      <div class="pain-card reveal reveal-delay-3">
+        <div class="pain-icon blue">📊</div>
+        <h3>No Single View Across Plants</h3>
+        <p>Attrition data from Pune. Headcount from Manesar. Compliance scorecard from Chennai — all in separate files sent by plant HR teams on different days. By the time the CHRO consolidates it for the board, it's stale and incomplete.</p>
+        <div class="pain-quote">"It takes 3–4 days to pull together. It's never fully accurate."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS SECTION -->
+<section class="solution-section" id="solutions">
+  <div class="section-inner">
+    <p class="eyebrow reveal">What PeopleStrong Solves</p>
+    <h2 class="section-title reveal reveal-delay-1">Six capabilities. Zero workarounds.</h2>
+    <p class="section-sub reveal reveal-delay-2">Built India-first, for plants that run on biometrics, contractors, and state-by-state compliance complexity.</p>
+
+    <div class="solution-grid">
+      <div class="solution-card featured reveal">
+        <div class="solution-tag">Highest Moat</div>
+        <h3>CLRA & Contract Labour Module</h3>
+        <p>Real-time visibility across all contractors — worker enrolment, wages, PF/ESIC, challan status — from one dashboard. Principal employer liability managed. Eliminates your audit blindspot under the new Labour Codes.</p>
+        <div class="moat-badge"><span class="moat-stars">★★★★★</span> India-native CLRA</div>
+      </div>
+      <div class="solution-card reveal reveal-delay-1">
+        <div class="solution-tag">Highest Moat</div>
+        <h3>Biometric Integration</h3>
+        <p>Native connectors for Essl, Matrix, Realand — the hardware used by 90%+ of Indian factory floors. No middleware. No manual download step. Biometric data flows directly to payroll, closing the ghost worker loop.</p>
+        <div class="moat-badge"><span class="moat-stars">★★★★★</span> Zero middleware</div>
+      </div>
+      <div class="solution-card reveal reveal-delay-2">
+        <div class="solution-tag">Highest Moat</div>
+        <h3>Statutory Register Automation</h3>
+        <p>Auto-generates the full Factories Act and CLRA register set — Forms 13 through 23 — as digital records. Inspector-ready at any time. Most HR platforms generate payslips. This is a genuine market rarity.</p>
+        <div class="moat-badge"><span class="moat-stars">★★★★★</span> Full Form 13–23 set</div>
+      </div>
+      <div class="solution-card reveal">
+        <div class="solution-tag">Strong Moat</div>
+        <h3>Multi-Entity, Multi-State Payroll</h3>
+        <p>Run payroll across 10+ legal entities with state-specific minimum wages, welfare cess, and PT slabs — all auto-applied. One process. Zero manual state-by-state adjustments for plant teams.</p>
+        <div class="moat-badge"><span class="moat-stars">★★★★</span> India state-native</div>
+      </div>
+      <div class="solution-card reveal reveal-delay-1">
+        <div class="solution-tag">Strong Moat</div>
+        <h3>Absenteeism Prediction & Shift Intelligence</h3>
+        <p>Flags high-risk absenteeism patterns before the shift starts — post-festival Mondays, payday patterns, habitual absentees. Plant HR arranges backup before Production calls to find out there's no one on Line 3.</p>
+        <div class="moat-badge"><span class="moat-stars">★★★★</span> Blue-collar predictive</div>
+      </div>
+      <div class="solution-card reveal reveal-delay-2">
+        <div class="solution-tag">Strong Moat</div>
+        <h3>Multi-Plant CHRO Analytics</h3>
+        <p>Single dashboard: attrition %, compliance scorecard, headcount, OT spend, absenteeism trend — rolled up from every plant. Board-ready data without a three-day Excel compile.</p>
+        <div class="moat-badge"><span class="moat-stars">★★★★</span> Cross-plant unified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAS -->
+<section class="personas-section" id="who">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Who It's Built For</p>
+    <h2 class="section-title reveal reveal-delay-1">Five stakeholders. One platform.</h2>
+    <p class="section-sub reveal reveal-delay-2">Each stakeholder in a manufacturing HR deal has a distinct pain — and a distinct reason to say yes.</p>
+    <div class="personas-grid">
+      <div class="persona-card reveal">
+        <span class="persona-emoji">🔴</span>
+        <div class="persona-role">The Sanctioner</div>
+        <div class="persona-title">CHRO / VP-HR</div>
+        <p class="persona-pain">Needs one unified board view. No more 3-day Excel consolidation from 10 plants.</p>
+        <div class="persona-influence">★★★★★ Budget Holder</div>
+      </div>
+      <div class="persona-card reveal reveal-delay-1">
+        <span class="persona-emoji">🟠</span>
+        <div class="persona-role">The Champion</div>
+        <div class="persona-title">Plant HR Manager</div>
+        <p class="persona-pain">Monday morning attendance chaos. Labour Inspector fear. Contractor register backlogs.</p>
+        <div class="persona-influence">★★★★ Internal Champion</div>
+      </div>
+      <div class="persona-card reveal reveal-delay-2">
+        <span class="persona-emoji">🟡</span>
+        <div class="persona-role">Co-Sanctioner</div>
+        <div class="persona-title">CFO / Head of Finance</div>
+        <p class="persona-pain">Payroll leakage. Ghost workers. Unexplained OT costs. SAP integration risk.</p>
+        <div class="persona-influence">★★★★ Budget Veto</div>
+      </div>
+      <div class="persona-card reveal reveal-delay-3">
+        <span class="persona-emoji">🔵</span>
+        <div class="persona-role">Surprise Influencer</div>
+        <div class="persona-title">Plant Head / COO</div>
+        <p class="persona-pain">Lines stalling from unpredicted absenteeism. Production losses HR didn't flag in time.</p>
+        <div class="persona-influence">★★★ Informal Power</div>
+      </div>
+      <div class="persona-card reveal reveal-delay-4">
+        <span class="persona-emoji">⚫</span>
+        <div class="persona-role">The Gatekeeper</div>
+        <div class="persona-title">IT Head / CIO</div>
+        <p class="persona-pain">Integration risk with SAP/Oracle. Data residency. "Wait for the S/4HANA upgrade."</p>
+        <div class="persona-influence">★★ Blocker Risk</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num"><em>3,000+</em></div>
+      <div class="stat-desc">Minimum headcount for enterprise fit — sweet spot is 3K–50K employees</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-num"><em>5+</em></div>
+      <div class="stat-desc">Plants across 3+ states — where PeopleStrong's multi-compliance stack wins</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-num"><em>30%</em></div>
+      <div class="stat-desc">Contract labour threshold that triggers principal employer liability under new Labour Codes</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-num"><em>₹500Cr+</em></div>
+      <div class="stat-desc">Revenue band of ideal manufacturing accounts — budget-ready for enterprise HRMS</div>
+    </div>
+  </div>
+</div>
+
+<!-- BUYING SIGNALS -->
+<section class="signals-section" id="signals">
+  <div class="section-inner">
+    <p class="eyebrow reveal">When to Act</p>
+    <h2 class="section-title reveal reveal-delay-1">Buying signals that tell you to call now.</h2>
+    <p class="section-sub reveal reveal-delay-2">Manufacturing HR deals are event-driven. Know what to look for — and what to say when you find it.</p>
+    <div class="signals-grid">
+      <div class="signal-card red reveal">
+        <div class="signal-urgency">🔴 ACT NOW · 0–4 weeks</div>
+        <h4>Labour Inspector Visit or PF Audit</h4>
+        <p>Compliance crisis is live. Company is in burning-platform mode. Lead with: "We can have your registers audit-ready in 30 days."</p>
+        <div class="signal-velocity">Sales velocity: 0–4 weeks</div>
+      </div>
+      <div class="signal-card red reveal reveal-delay-1">
+        <div class="signal-urgency">🔴 ACT NOW · 0–6 weeks</div>
+        <h4>Worker Walkout or Payroll Fraud Found</h4>
+        <p>IR incident or internal audit flag. Lead with payroll accuracy, not product. "Every payroll error is an IR risk — we eliminate the root cause."</p>
+        <div class="signal-velocity">Sales velocity: 0–6 weeks</div>
+      </div>
+      <div class="signal-card red reveal reveal-delay-2">
+        <div class="signal-urgency">🔴 ACT NOW · 2–8 weeks</div>
+        <h4>State Labour Code Notification</h4>
+        <p>Paper registers are now a legal liability. "We auto-generate every required digital register — any inspector, any time."</p>
+        <div class="signal-velocity">Sales velocity: 2–8 weeks</div>
+      </div>
+      <div class="signal-card yellow reveal">
+        <div class="signal-urgency">🟡 PRIORITISE · 4–12 weeks</div>
+        <h4>New CHRO Hire</h4>
+        <p>Reach out within 2 weeks of appointment. First 60 days = highest buying window. Connect with their transformation agenda before it's set.</p>
+        <div class="signal-velocity">Sales velocity: 4–12 weeks</div>
+      </div>
+      <div class="signal-card yellow reveal reveal-delay-1">
+        <div class="signal-urgency">🟡 PRIORITISE · 6–16 weeks</div>
+        <h4>PE Investment or IPO Filing</h4>
+        <p>New investors will ask for workforce metrics. "Here's how to be board-ready with real-time HR data in time for your 100-day plan."</p>
+        <div class="signal-velocity">Sales velocity: 6–16 weeks</div>
+      </div>
+      <div class="signal-card green reveal reveal-delay-2">
+        <div class="signal-urgency">🟢 NURTURE · 12–24 weeks</div>
+        <h4>Headcount Crossed 5,000 or Industry 4.0 Mandate</h4>
+        <p>Excel is visibly breaking. CEO is talking digital transformation. "HR data is the foundation of your Industry 4.0 stack — build it right now."</p>
+        <div class="signal-velocity">Sales velocity: 12–24 weeks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOVERY QUESTIONS -->
+<section class="discovery-section">
+  <div class="discovery-inner">
+    <p class="eyebrow reveal">Discovery Playbook</p>
+    <h2 class="section-title reveal reveal-delay-1">The questions that open every deal.</h2>
+    <p class="section-sub reveal reveal-delay-2">Use these verbatim. Each one is designed to surface a specific pain — and create a specific entry point.</p>
+    <div class="questions-grid">
+      <div class="question-card reveal">
+        <div class="question-persona">🔴 CHRO — Board Pressure</div>
+        <p>"When your MD or board asks for a workforce snapshot across all plants — what does that process look like today? How much of it is Excel?"</p>
+      </div>
+      <div class="question-card reveal reveal-delay-1">
+        <div class="question-persona">🟠 Plant HR — Monday Morning</div>
+        <p>"Walk me through your Monday morning — from when you arrive, to when you send the manpower report to Production. What does that look like?"</p>
+      </div>
+      <div class="question-card reveal">
+        <div class="question-persona">🟠 Plant HR — Inspector Readiness</div>
+        <p>"When a Labour Inspector walks in unannounced, how long does it take you to pull together all the CLRA registers for your contractors?"</p>
+      </div>
+      <div class="question-card reveal reveal-delay-1">
+        <div class="question-persona">🟡 CFO — OT Leakage</div>
+        <p>"Do you have a sense of what overtime spend looks like as a percentage of your wage bill? Has it ever been audited for accuracy?"</p>
+      </div>
+      <div class="question-card reveal">
+        <div class="question-persona">🔵 Plant Head / COO — Production Impact</div>
+        <p>"How often does a production line get delayed because of a manpower shortage you didn't see coming? What does that cost per hour?"</p>
+      </div>
+      <div class="question-card reveal reveal-delay-1">
+        <div class="question-persona">🔴 ALL — The Golden Question</div>
+        <p>"If I asked your Plant HR Manager right now how ready they are for an unannounced Labour Inspector visit — what do you think they'd say?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+      <rect x="4" y="16" width="10" height="10" rx="2" fill="#FFB700"/>
+      <rect x="12" y="8" width="10" height="10" rx="2" fill="#FC4430"/>
+      <rect x="20" y="0" width="10" height="10" rx="2" fill="#00D3E4"/>
+    </svg>
+    <span class="footer-brand">PeopleStrong</span>
+    <span class="footer-divider">|</span>
+    <span class="footer-tagline">Manufacturing HR Solutions</span>
+  </div>
+  <span class="footer-right">Internal Use Only · Solutions & Sales Enablement</span>
+</footer>
+
+<script>
+  // Scroll-based nav shadow
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
